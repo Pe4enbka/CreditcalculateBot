@@ -14,7 +14,8 @@ db_connection = psycopg2.connect(
     host=host,
     user=user,
     password=password,
-    database=db_name
+    database=db_name,
+    port=port
 )
 db_object = db_connection.cursor()
 
