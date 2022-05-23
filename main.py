@@ -16,15 +16,15 @@ db_object = db_connection.cursor()
 
 @bot.message_handler(commands=["start"])
 def start(message):
-    id = message.from_user.id
+    user_id = message.from_user.id
     username = message.from_user.username
     bot.reply_to(message, f"Hello, {username}!")
 
-    db_object.execute(f"SELECT id FROM individual WHERE id = {id}")
+    db_object.execute(f"SELECT id FROM individual WHERE id = {user_id}")
     result = db_object.fetchone()
 
     if not result:
-        db_object.execute("INSERT INTO individual(id, fullName) VALUES (%s, %s)", (id, username))
+        db_object.execute("INSERT INTO individual(id, fullName) VALUES (%s, %s)", (user_id, username))
         db_connection.commit()
 
 
