@@ -1,5 +1,5 @@
-BOT_TOKEN = "5307046869:AAFJATWhlKfT9OUYe2hoc-Yt_wuytxAibJo"
-APP_URL = "https://creditcalculate-bot.herokuapp.com/" + BOT_TOKEN
+#BOT_TOKEN = "5307046869:AAFJATWhlKfT9OUYe2hoc-Yt_wuytxAibJo"
+#APP_URL = "https://creditcalculate-bot.herokuapp.com/" + BOT_TOKEN
 
 host = "ec2-52-30-67-143.eu-west-1.compute.amazonaws.com"
 user = "mdtqgshedrdyps"
