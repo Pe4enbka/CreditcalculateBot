@@ -10,7 +10,12 @@ server = Flask(__name__)
 logger = telebot.logger
 logger.setLevel(logging.DEBUG)
 
-db_connection = psycopg2.connect(DB_URI, sslmode="require")
+db_connection = psycopg2.connect(
+    host=host,
+    user=user,
+    password=password,
+    database=db_name
+)
 db_object = db_connection.cursor()
 
 
