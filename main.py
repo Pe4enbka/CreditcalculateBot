@@ -640,9 +640,11 @@ async def process_salary_credit(message: types.Message, state: FSMContext):
         res, rate = bank_individual_type_calcul()
         salaryCredit = int(data['salary']) * int(rate) / 100 * int(data['age']) / 12
         salaryAll = salaryCredit + int(data['salary'])
+        rateMonth = int(rate)/12
+        salaryMonth = (rateMonth*(1+rateMonth)**int(data['age']))/((1+rateMonth)**int(data['age'])-1)
         salary = int(data['salary'])
         age = int(data['age'])
-        textSalary = 'Сумма кредита составит: ' + str(salaryAll) + ', а переплата: ' + str(salaryCredit)
+        textSalary = 'Сумма кредита составит: ' + str(salaryAll) + ', а переплата: ' + str(salaryCredit) + '. Ежемесячный платеж составит: ' + str(salaryMonth)
 
     db_object.execute(f"SELECT term FROM calculate")
     result = db_object.fetchone()
